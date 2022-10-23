@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -32,11 +33,19 @@ public class GoToPage {
 				WebElement text=wb.findElement(By.xpath("//h2[text()='Dry Food']"));
 				String value=text.getText();
 				System.out.println("Text content is : "+value);
+				List<WebElement> products = wb.findElements(By.xpath("//*[@class='sf__pcard-content text-left']"));
+		        System.out.println(products.size());
+		        for (WebElement Elements : products) 
+		        {
+		            String name = Elements.getText();
+		            System.out.println("Product_Name : "+name.substring(0, 20));
+		        }
 				wb.close();
 			}
 		}
 		wb.switchTo().window(parentWindow);
 		System.out.println("Switch back to Parent window : " + parentWindow);
+		
 	}
 
 }
