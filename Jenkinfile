@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build triggered'
+                git 'https://github.com/Pradip3011/Git-Demo.git'
             }
         }
     }
